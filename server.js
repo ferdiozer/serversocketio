@@ -17,7 +17,10 @@ var express = require('express'),
 
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);  //pass a http.Server instance
-server.listen(443);  //listen on port 80
+//server.listen(443);  //listen on port 80
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 io.on('connection', function (socket) {
 	socket.emit('userId',{userId:socket.id});
