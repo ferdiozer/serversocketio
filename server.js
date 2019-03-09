@@ -17,7 +17,7 @@ var express = require('express'),
 
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);  //pass a http.Server instance
-server.listen(3000);  //listen on port 80
+server.listen(443);  //listen on port 80
 
 io.on('connection', function (socket) {
 	socket.emit('userId',{userId:socket.id});
